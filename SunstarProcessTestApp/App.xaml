@@ -1,0 +1,373 @@
+﻿<Application
+    x:Class="SunstarProcessTestApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controlzEx="clr-namespace:ControlzEx;assembly=MaterialDesignThemes.Wpf"
+    xmlns:local="clr-namespace:SunstarProcessTestApp"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/MainStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Orange.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--  Reseting the Column Header Text Size  -->
+            <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontWeight" Value="Regular" />
+                <Setter Property="MinWidth" Value="100" />
+
+            </Style>
+
+            <!--  Setting the default button color to dark  -->
+            <Style BasedOn="{StaticResource MaterialDesignRaisedDarkButton}" TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="42" />
+                <Setter Property="TextBlock.FontSize" Value="16" />
+                <Setter Property="MinWidth" Value="100" />
+            </Style>
+
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+            <ControlTemplate x:Key="ValidationErrorTemplate">
+                <ControlTemplate.Resources>
+                    <DataTemplate DataType="{x:Type ValidationError}">
+                        <TextBlock
+                            MaxWidth="{Binding ElementName=Placeholder, Path=ActualWidth}"
+                            Margin="2"
+                            HorizontalAlignment="Left"
+                            FontSize="13"
+                            Foreground="{DynamicResource ValidationErrorBrush}"
+                            Text="{Binding ErrorContent}"
+                            TextWrapping="Wrap"
+                            UseLayoutRounding="false" />
+                    </DataTemplate>
+                </ControlTemplate.Resources>
+                <StackPanel>
+                    <AdornedElementPlaceholder Name="Placeholder" />
+                    <Border
+                        Name="DefaultErrorViewer"
+                        Background="{DynamicResource MaterialDesignPaper}"
+                        Visibility="Collapsed">
+                        <TextBlock
+                            MaxWidth="{Binding ElementName=Placeholder, Path=ActualWidth}"
+                            Margin="0,2"
+                            HorizontalAlignment="Left"
+                            FontSize="13"
+                            Foreground="{DynamicResource ValidationErrorBrush}"
+                            Text="{Binding CurrentItem.ErrorContent}"
+                            TextWrapping="Wrap"
+                            UseLayoutRounding="false" />
+                    </Border>
+                    <controlzEx:PopupEx
+                        x:Name="ValidationPopup"
+                        AllowsTransparency="True"
+                        IsOpen="False"
+                        Placement="Bottom"
+                        PlacementTarget="{Binding ElementName=Placeholder, Mode=OneWay}">
+                        <Border Background="{DynamicResource MaterialDesignPaper}">
+                            <TextBlock
+                                Margin="0,2"
+                                HorizontalAlignment="Left"
+                                FontSize="13"
+                                Foreground="{DynamicResource ValidationErrorBrush}"
+                                Text="{Binding CurrentItem.ErrorContent}"
+                                TextWrapping="Wrap"
+                                UseLayoutRounding="false" />
+                        </Border>
+                    </controlzEx:PopupEx>
+                </StackPanel>
+                <ControlTemplate.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.OnlyShowOnFocus)}" Value="False" />
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.UsePopup)}" Value="True" />
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.Suppress)}" Value="False" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="ValidationPopup" Property="IsOpen" Value="True" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.OnlyShowOnFocus)}" Value="False" />
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.UsePopup)}" Value="False" />
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.Suppress)}" Value="False" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="DefaultErrorViewer" Property="Visibility" Value="Visible" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.OnlyShowOnFocus)}" Value="True" />
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.UsePopup)}" Value="True" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="ValidationPopup" Property="IsOpen" Value="{Binding ElementName=Placeholder, Path=AdornedElement.IsKeyboardFocusWithin, Mode=OneWay}" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.OnlyShowOnFocus)}" Value="True" />
+                            <Condition Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(materialDesign:ValidationAssist.UsePopup)}" Value="False" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="DefaultErrorViewer" Property="Visibility" Value="{Binding ElementName=Placeholder, Path=AdornedElement.IsKeyboardFocusWithin, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+            <!--  Default ScrollBar // this is to increase the size of the actual ScrollBar  -->
+            <Style BasedOn="{StaticResource MaterialDesignScrollBar}" TargetType="{x:Type ScrollBar}">
+                <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+                <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesignSelection}" />
+                <Setter Property="BorderThickness" Value="1,0" />
+                <Setter Property="Width" Value="40" />
+                <Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="0.00001*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Border
+                                    Grid.Row="1"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+                                <RepeatButton
+                                    x:Name="PART_LineUpButton"
+                                    Width="40"
+                                    Height="40"
+                                    Command="{x:Static ScrollBar.LineUpCommand}"
+                                    IsEnabled="{TemplateBinding IsMouseOver}"
+                                    Style="{StaticResource MaterialDesignScrollBarButton}">
+                                    <Viewbox
+                                        Width="35"
+                                        Height="35"
+                                        Margin="3">
+                                        <Canvas Width="44" Height="44">
+                                            <Path
+                                                x:Name="ArrowTop"
+                                                Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
+                                                Fill="{DynamicResource MaterialDesignBody}"
+                                                RenderTransformOrigin="0,0"
+                                                Stretch="Uniform">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                        <SkewTransform />
+                                                        <RotateTransform />
+                                                        <TranslateTransform X="3" />
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Canvas>
+                                    </Viewbox>
+                                </RepeatButton>
+                                <Track
+                                    x:Name="PART_Track"
+                                    Grid.Row="1"
+                                    IsDirectionReversed="true"
+                                    IsEnabled="{TemplateBinding IsMouseOver}">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource MaterialDesignRepeatButtonTransparent}" />
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource MaterialDesignRepeatButtonTransparent}" />
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource MaterialDesignScrollBarThumbVertical}" />
+                                    </Track.Thumb>
+                                </Track>
+                                <RepeatButton
+                                    x:Name="PART_LineDownButton"
+                                    Grid.Row="2"
+                                    Width="40"
+                                    Height="40"
+                                    Command="{x:Static ScrollBar.LineDownCommand}"
+                                    IsEnabled="{TemplateBinding IsMouseOver}"
+                                    Style="{StaticResource MaterialDesignScrollBarButton}">
+                                    <Viewbox
+                                        Width="35"
+                                        Height="35"
+                                        Margin="3">
+                                        <Canvas Width="44" Height="44">
+                                            <Path
+                                                x:Name="ArrowBottom"
+                                                Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
+                                                Fill="{DynamicResource MaterialDesignBody}"
+                                                RenderTransformOrigin="0,0"
+                                                Stretch="Uniform">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                        <SkewTransform />
+                                                        <RotateTransform />
+                                                        <TranslateTransform X="3" />
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Canvas>
+                                    </Viewbox>
+                                </RepeatButton>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" Value=".56" />
+                    </Trigger>
+                    <Trigger Property="Orientation" Value="Horizontal">
+                        <Setter Property="Width" Value="Auto" />
+                        <Setter Property="MinWidth" Value="0" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="MinHeight" Value="40" />
+                        <Setter Property="BorderThickness" Value="0,1" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                    <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition MaxWidth="40" />
+                                            <ColumnDefinition Width="0.00001*" />
+                                            <ColumnDefinition MaxWidth="40" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border
+                                            Grid.Column="1"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}" />
+                                        <RepeatButton
+                                            x:Name="PART_LineLeftButton"
+                                            Width="40"
+                                            Height="40"
+                                            Command="{x:Static ScrollBar.LineLeftCommand}"
+                                            IsEnabled="{TemplateBinding IsMouseOver}"
+                                            Style="{StaticResource MaterialDesignScrollBarButton}">
+                                            <Viewbox
+                                                Width="35"
+                                                Height="35"
+                                                Margin="3">
+                                                <Canvas Width="44" Height="44">
+                                                    <Path
+                                                        x:Name="ArrowLeft"
+                                                        Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                                                        Fill="{DynamicResource MaterialDesignBody}"
+                                                        Stretch="Uniform">
+                                                        <Path.RenderTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                                <SkewTransform />
+                                                                <RotateTransform />
+                                                                <TranslateTransform X="3" Y="3" />
+                                                            </TransformGroup>
+                                                        </Path.RenderTransform>
+                                                    </Path>
+                                                </Canvas>
+                                            </Viewbox>
+                                        </RepeatButton>
+                                        <Track
+                                            x:Name="PART_Track"
+                                            Grid.Column="1"
+                                            IsEnabled="{TemplateBinding IsMouseOver}">
+                                            <Track.DecreaseRepeatButton>
+                                                <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource MaterialDesignRepeatButtonTransparent}" />
+                                            </Track.DecreaseRepeatButton>
+                                            <Track.IncreaseRepeatButton>
+                                                <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource MaterialDesignRepeatButtonTransparent}" />
+                                            </Track.IncreaseRepeatButton>
+                                            <Track.Thumb>
+                                                <Thumb Style="{StaticResource MaterialDesignScrollBarThumbHorizontal}" />
+                                            </Track.Thumb>
+                                        </Track>
+                                        <RepeatButton
+                                            x:Name="PART_LineRightButton"
+                                            Grid.Column="2"
+                                            Width="40"
+                                            Height="40"
+                                            Command="{x:Static ScrollBar.LineRightCommand}"
+                                            IsEnabled="{TemplateBinding IsMouseOver}"
+                                            Style="{StaticResource MaterialDesignScrollBarButton}">
+                                            <Viewbox
+                                                Width="35"
+                                                Height="35"
+                                                Margin="3">
+                                                <Canvas Width="44" Height="44">
+                                                    <Path
+                                                        x:Name="ArrowRight"
+                                                        Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                                                        Fill="{DynamicResource MaterialDesignBody}"
+                                                        Stretch="Uniform">
+                                                        <Path.RenderTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                                <SkewTransform />
+                                                                <RotateTransform />
+                                                                <TranslateTransform Y="3" />
+                                                            </TransformGroup>
+                                                        </Path.RenderTransform>
+                                                    </Path>
+                                                </Canvas>
+                                            </Viewbox>
+                                        </RepeatButton>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineRightButton}" Value="true" />
+                                                <Condition Binding="{Binding IsPressed, ElementName=PART_LineRightButton}" Value="true" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter TargetName="ArrowRight" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineLeftButton}" Value="true" />
+                                                <Condition Binding="{Binding IsPressed, ElementName=PART_LineLeftButton}" Value="true" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter TargetName="ArrowLeft" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineRightButton}" Value="true" />
+                                                <Condition Binding="{Binding IsPressed, ElementName=PART_LineRightButton}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter TargetName="ArrowRight" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineLeftButton}" Value="true" />
+                                                <Condition Binding="{Binding IsPressed, ElementName=PART_LineLeftButton}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter TargetName="ArrowLeft" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                        </MultiDataTrigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter TargetName="ArrowLeft" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                            <Setter TargetName="ArrowRight" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

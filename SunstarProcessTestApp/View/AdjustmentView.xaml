@@ -1,0 +1,263 @@
+﻿<UserControl
+    x:Class="SunstarProcessTestApp.View.AdjustmentView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SunstarProcessTestApp.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    TextElement.FontSize="15"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Adjustments" />
+        <StackPanel
+            Grid.Row="1"
+            VerticalAlignment="Top"
+            Orientation="Horizontal">
+            <TextBlock
+                VerticalAlignment="Bottom"
+                FontWeight="Bold"
+                Style="{DynamicResource MaterialDesignSubheadingTextBlock}"
+                Text="1st Adjustment" />
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Bottom"
+                Style="{DynamicResource MaterialDesignBody1TextBlock}"
+                Text="(Step 12)" />
+            <TextBlock
+                Margin="40,0,12,0"
+                VerticalAlignment="Bottom"
+                Text="Start" />
+            <materialDesign:TimePicker Width="100" />
+        </StackPanel>
+        <Grid
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Liquid" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="12,0,20,0"
+                HorizontalAlignment="Center"
+                Text="Lbs" />
+
+            <TextBlock
+                Grid.Column="3"
+                Margin="0,0,12,0"
+                Text="Flometer Initial"
+                TextAlignment="Center" />
+            <TextBlock
+                Grid.Column="4"
+                Margin="0,0,12,0"
+                Text="Flowmeter Final"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <TextBlock Grid.Column="5" Text="+/-" />
+            <TextBlock
+                Grid.Column="6"
+                Text="Tolerance"
+                TextAlignment="Center" />
+            <TextBlock
+                Grid.Column="7"
+                Margin="0,0,12,0"
+                Text="Minimum"
+                TextAlignment="Center" />
+            <TextBlock
+                Grid.Column="8"
+                Margin="0,0,12,0"
+                Text="PLC Readout"
+                TextAlignment="Center" />
+            <TextBlock
+                Grid.Column="9"
+                Text="Maximum"
+                TextAlignment="Center" />
+
+            <TextBox Grid.Row="1" Width="200" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="50"
+                Margin="12,0,20,0"
+                TextAlignment="Center" />
+
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="3"
+                Width="100"
+                Margin="0,0,16,0"
+                TextAlignment="Center" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="4"
+                Width="108"
+                Margin="0,0,16,0"
+                TextAlignment="Center" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="6"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="1.0%" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="7"
+                Margin="0,0,12,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="n/a" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="8"
+                Margin="0,0,12,0"
+                TextAlignment="Center" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="9"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="n/a" />
+        </Grid>
+        <Grid Grid.Row="3" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Powder" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="12,0,12,0"
+                HorizontalAlignment="Center"
+                Text="Lbs" />
+            <TextBlock
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Text="Bags" />
+
+            <TextBox Grid.Row="1" Width="200" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="50" 
+                Margin="12,0"
+                TextAlignment="Center"/>
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="2"
+                Width="50"
+                TextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="4" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                VerticalAlignment="Bottom"
+                FontWeight="Bold"
+                Style="{DynamicResource MaterialDesignSubheadingTextBlock}"
+                Text="1st Adjustment Mix/Vac" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                VerticalAlignment="Bottom"
+                Style="{DynamicResource MaterialDesignBody1TextBlock}"
+                Text="(Step 7)" />
+            <TextBlock
+                Grid.Column="2"
+                Margin="8,0,12,0"
+                VerticalAlignment="Bottom"
+                Text="Start" />
+            <materialDesign:TimePicker Grid.Column="3" Width="100" />
+        </Grid>
+        
+        <Grid Grid.Row="5" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                VerticalAlignment="Bottom"
+                FontWeight="Bold"
+                Style="{DynamicResource MaterialDesignSubheadingTextBlock}"
+                Text="1st Adjustment Bypass" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                VerticalAlignment="Bottom"
+                Style="{DynamicResource MaterialDesignBody1TextBlock}"
+                Text="(Step 8)" />
+            <TextBlock
+                Grid.Column="2"
+                Margin="8,0,12,0"
+                VerticalAlignment="Bottom"
+                Text="Start" />
+            <materialDesign:TimePicker Grid.Column="3" Width="100" />
+        </Grid>
+
+        <Grid Grid.Row="6" Margin="0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                VerticalAlignment="Bottom"
+                FontWeight="Bold"
+                Style="{DynamicResource MaterialDesignSubheadingTextBlock}"
+                Text="1st Adjustment QC" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                VerticalAlignment="Bottom"
+                Style="{DynamicResource MaterialDesignBody1TextBlock}"
+                Text="(Step 10)" />
+            <materialDesign:TimePicker Grid.Column="3" Width="100" Margin="12,0"/>
+            <TextBlock Text="Time sample turned in to QC" Grid.Column="4" VerticalAlignment="Bottom"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

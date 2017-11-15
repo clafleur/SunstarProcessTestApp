@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="SunstarProcessTestApp.View.PowderProcessView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SunstarProcessTestApp.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:vw="clr-namespace:SunstarProcessTestApp.View"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <Grid Margin="24,24,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock
+            HorizontalAlignment="Left"
+            Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+            Text="Powder" />
+        <Button
+            HorizontalAlignment="Right"
+            Content="Return to Batch Selection"
+            KeyboardNavigation.IsTabStop="False" />
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock
+                Margin="0,0,0,6"
+                VerticalAlignment="Bottom"
+                FontSize="15"
+                Text="Controlled Added: " />
+            <materialDesign:TimePicker
+                Width="200"
+                Margin="20,0,10,0"
+                FontSize="15"
+                SelectedTime="{Binding Mode=OneTime, Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd-MMM-yyyy hh:mm:ss}'}" />
+            <TextBlock
+                Margin="0,0,0,6"
+                VerticalAlignment="Bottom"
+                FontSize="15"
+                Text="99 mins " />
+
+        </StackPanel>
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="0,30,0,0"
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <vw:MezzaninePowderAdditionView Margin="0,0,0,40" />
+                <vw:BagDumpPowderAdditionView Margin="0,0,0,40" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

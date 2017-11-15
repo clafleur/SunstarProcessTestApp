@@ -1,0 +1,289 @@
+﻿<UserControl
+    x:Class="SunstarProcessTestApp.View.InitialCheckQC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SunstarProcessTestApp.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:vw="clr-namespace:SunstarProcessTestApp.View"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <Grid Margin="24,24,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                HorizontalAlignment="Left"
+                Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+                Text="QC Initial Check" />
+            <TextBlock
+                Margin="30,0,0,6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                Text="T5 Adjustment / Cooldown" />
+        </StackPanel>
+        <Button
+            HorizontalAlignment="Right"
+            Content="Return to Batch Selection"
+            KeyboardNavigation.IsTabStop="False" />
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            Orientation="Horizontal">
+            <TextBlock
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                Text="Date/Time sample turned into QC" />
+            <DatePicker
+                Width="200"
+                MinWidth="0"
+                Margin="30,0,0,0"
+                FontSize="15"
+                Style="{DynamicResource MaterialDesignDatePicker}"
+                Text="{Binding Mode=OneTime, Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd-MMM-yyyy hh:mm:ss}'}" />
+
+        </StackPanel>
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid HorizontalAlignment="Left" TextElement.FontSize="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center" Text="Vo" />
+                    <TextBlock
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Text="PFo" />
+                    <TextBlock
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Text="Results" />
+                    <TextBlock
+                        Grid.Column="3"
+                        HorizontalAlignment="Center"
+                        Text="R/M Input" />
+                    <TextBlock
+                        Grid.Column="4"
+                        Margin="8,0"
+                        VerticalAlignment="Center"
+                        Text="+" />
+                    <TextBlock
+                        Grid.Column="5"
+                        HorizontalAlignment="Center"
+                        Text="Rework" />
+                    <TextBlock
+                        Grid.Column="6"
+                        Margin="8,0"
+                        VerticalAlignment="Center"
+                        Text="=" />
+                    <TextBlock
+                        Grid.Column="7"
+                        HorizontalAlignment="Center"
+                        Text="1st Net" />
+                    <TextBlock
+                        Grid.Column="8"
+                        Margin="8,0"
+                        VerticalAlignment="Center"
+                        Text="x" />
+                    <TextBlock
+                        Grid.Column="9"
+                        HorizontalAlignment="Center"
+                        Text="Adj %" />
+                    <TextBlock
+                        Grid.Column="10"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="%" />
+                    <TextBlock
+                        Grid.Column="11"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="=" />
+                    <TextBlock
+                        Grid.Column="12"
+                        HorizontalAlignment="Center"
+                        Text="1st Adj Lbs" />
+                    <TextBlock
+                        Grid.Column="13"
+                        HorizontalAlignment="Center"
+                        Text="QC Initials" />
+                    <TextBlock Grid.Column="14" Text="QC End Time" />
+
+                    <TextBox
+                        Grid.Row="1"
+                        Width="50"
+                        Margin="0,0,8,0" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="50"
+                        Margin="8,0,8,0" />
+                    <ComboBox
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Width="75"
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Bottom">
+                        <ComboBoxItem x:Name="OKComboBox" Content="OK" />
+                        <ComboBoxItem Content="Adjust" />
+                        <ComboBoxItem Content="Reject" />
+                    </ComboBox>
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Width="75"
+                        Margin="8,0,8,0" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="+" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="5"
+                        Width="50"
+                        Margin="0,0,8,0" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="6"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="=" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="7"
+                        Width="50"
+                        Margin="0,0,8,0" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="8"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="x" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="9"
+                        Width="50"
+                        Margin="0,0,8,0" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="10"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="%" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="11"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="=" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="12"
+                        Width="75"
+                        Margin="0,0,8,0" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="13"
+                        Width="75"
+                        Margin="8,0,8,0" />
+                    <materialDesign:TimePicker
+                        Grid.Row="1"
+                        Grid.Column="14"
+                        Width="150"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Bottom" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Text="SG" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Margin="0,20,8,0"
+                        Text="Model:" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="5"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Text="Vo" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="7"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Text="PFo" />
+
+                    <TextBox
+                        Grid.Row="3"
+                        Width="50"
+                        Margin="0,0,8,0" />
+                    <TextBox
+                        Grid.Row="3"
+                        Grid.Column="5"
+                        Width="50" />
+                    <TextBox
+                        Grid.Row="3"
+                        Grid.Column="7"
+                        Width="50" />
+
+                </Grid>
+                <Button
+                    Grid.Row="1"
+                    Margin="0,8"
+                    HorizontalAlignment="Right"
+                    Content="Sample OK - Advance to Discharge"
+                    Visibility="{Binding IsSelected, ConverterParameter=True, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=OKComboBox}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Margin="0,20"
+                    HorizontalAlignment="Center"
+                    Text="(if QC sample is OK, push the sample OK button and Advance to Discharge Step when Cooldown is complete)" />
+                <ItemsControl Grid.Row="3">
+                    <vw:AdjustmentView />
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

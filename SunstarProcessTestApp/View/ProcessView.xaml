@@ -2,11 +2,13 @@
     x:Class="SunstarProcessTestApp.View.ProcessView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SunstarProcessTestApp.View"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vw="clr-namespace:SunstarProcessTestApp.View"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf"
     d:DesignHeight="300"
     d:DesignWidth="300"
     mc:Ignorable="d">
@@ -14,6 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -22,14 +25,15 @@
         </Grid.RowDefinitions>
 
         <!--  Header Grid  -->
-        <Grid Grid.ColumnSpan="2" Margin="24,24,10,10">
+        <Grid Grid.ColumnSpan="3" Margin="24,10,10,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBlock
                 VerticalAlignment="Center"
-                Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+                Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                 Text="Process" />
             <StackPanel
                 Grid.Column="1"
@@ -38,37 +42,42 @@
                 Orientation="Horizontal">
                 <TextBlock
                     VerticalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    FontWeight="Regular"
+                    Style="{StaticResource MaterialDesignTitleTextBlock}"
                     Text="Batch #" />
 
                 <!--  TODO: Bind Batch Number  -->
                 <TextBlock
                     Margin="10,0,0,0"
                     VerticalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    FontWeight="Regular"
+                    Style="{StaticResource MaterialDesignTitleTextBlock}"
                     Text="451258" />
                 <TextBlock
                     Margin="30,0,0,0"
                     VerticalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    FontWeight="Regular"
+                    Style="{StaticResource MaterialDesignTitleTextBlock}"
                     Text="Tank" />
 
                 <!--  TODO: Bind Tank Letter Here  -->
                 <TextBlock
                     Margin="10,0,0,0"
                     VerticalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    FontWeight="Regular"
+                    Style="{StaticResource MaterialDesignTitleTextBlock}"
                     Text="A" />
                 <TextBlock
                     Margin="30,0,0,0"
                     VerticalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    FontWeight="Regular"
+                    Style="{StaticResource MaterialDesignTitleTextBlock}"
                     Text="Recipe" />
 
                 <!--  TODO: Bind the batch recipe letter here  -->
                 <Border
-                    Width="36"
-                    Height="36"
+                    Width="30"
+                    Height="30"
                     Margin="10,0,0,0"
                     BorderBrush="White"
                     BorderThickness="1"
@@ -77,13 +86,19 @@
                         x:Name="TagLetter"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                        FontWeight="Regular"
+                        Style="{StaticResource MaterialDesignTitleTextBlock}"
                         Text="B" />
                 </Border>
             </StackPanel>
+            <Button
+                Grid.Column="2"
+                HorizontalAlignment="Right"
+                Content="Return to Batch Selection"
+                KeyboardNavigation.IsTabStop="False" />
         </Grid>
         <Rectangle
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="3"
             VerticalAlignment="Bottom"
             Stroke="#FF757575" />
         <Rectangle
@@ -95,7 +110,8 @@
             Grid.RowSpan="2"
             Width="200"
             Background="{DynamicResource PrimaryHueDarkBrush}"
-            FontSize="15">
+            FontSize="15"
+            ItemContainerStyle="{DynamicResource ProcessListBoxItemStyle}">
             <ListBoxItem
                 x:Name="LiquidListBoxItem"
                 Padding="24,12"
@@ -117,24 +133,46 @@
                 Content="Step 6 Discharge" />
             <ListBoxItem Padding="24,12" Content="Step 7 Discharge Yeild" />
         </ListBox>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2">
             <vw:LiquidProcessView Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=LiquidListBoxItem}" />
             <vw:PowderProcessView Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=PowderListBoxItem}" />
             <vw:InitialCheckQC Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=InitialQCListBoxItem}" />
-            <vw:DischargeView Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=InitialQCListBoxItem}" />
+            <vw:DischargeView Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DischargeListBoxItem}" />
         </Grid>
         <Rectangle
             Grid.Row="1"
             Grid.Column="1"
+            Grid.ColumnSpan="2"
             VerticalAlignment="Bottom"
             Stroke="#FF757575" />
-        <Button
+        <Grid
             Grid.Row="2"
             Grid.Column="1"
+            Margin="24,20,12,20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <TextBlock
+                Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                Text="This is where you will see any instructions for that step"
+                TextWrapping="Wrap"
+                Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=LiquidListBoxItem}" />
+            <TextBlock
+                Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                Text="(if QC sample is OK, push the sample OK button and Advance to Discharge Step when Cooldown is complete)"
+                TextWrapping="Wrap"
+                Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=InitialQCListBoxItem}" />
+            
+        </Grid>
+        <Button
+            Grid.Row="2"
+            Grid.Column="2"
             Width="130"
             Margin="0,24,10,10"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Center"
             Content="Continue" />
     </Grid>
 </UserControl>

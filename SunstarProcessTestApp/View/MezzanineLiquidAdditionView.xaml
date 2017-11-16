@@ -28,15 +28,15 @@
             Margin="0,0,0,12"
             VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="80" />
                 <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="70" />
-                <ColumnDefinition Width="90" />
-                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
                 <ColumnDefinition />
-                <ColumnDefinition Width="70" />
-                <ColumnDefinition Width="90" />
-                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
             </Grid.ColumnDefinitions>
 
             <TextBlock
@@ -72,7 +72,7 @@
                 Grid.Column="7"
                 HorizontalAlignment="Center"
                 FontSize="15"
-                Text="Net" FontWeight="Bold"/>
+                Text="Net" />
             <TextBlock
                 Grid.Column="8"
                 HorizontalAlignment="Center"
@@ -108,7 +108,7 @@
                                                     <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
                                                 <TextBlock
-                                                    Margin="0,8,0,4"
+                                                    Margin="0,12"
                                                     FontSize="15"
                                                     Text="{Binding Name}" />
                                                 <ItemsPresenter Grid.Column="1" />
@@ -116,7 +116,7 @@
                                                 <Rectangle
                                                     Grid.Row="1"
                                                     Grid.ColumnSpan="2"
-                                                    Margin="0,10,0,0"
+                                                    Margin="0,12,0,0"
                                                     VerticalAlignment="Bottom"
                                                     Stroke="#FF757575" />
                                             </Grid>
@@ -136,20 +136,20 @@
                             </Grid.RowDefinitions>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="90" />
+                                    <ColumnDefinition Width="80" />
                                     <ColumnDefinition Width="50" />
-                                    <ColumnDefinition Width="70" />
-                                    <ColumnDefinition Width="90" />
-                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
                                     <ColumnDefinition />
-                                    <ColumnDefinition Width="70" />
-                                    <ColumnDefinition Width="90" />
-                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
                                 </Grid.ColumnDefinitions>
 
                                 <!--  TODO:Bind Spec Weight Here  -->
                                 <TextBlock
-                                    Margin="0,8,0,4"
+                                    Margin="0,12"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     Text="{Binding SpecWeight}" />
@@ -157,7 +157,7 @@
                                 <!--  TODO:Bind Min Gross Here  -->
                                 <TextBlock
                                     Grid.Column="2"
-                                    Margin="0,8,0,4"
+                                    Margin="0,12"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     Text="{Binding MinGross}" />
@@ -166,6 +166,7 @@
                                 <TextBox
                                     Grid.Column="3"
                                     Width="80"
+                                    Margin="0,0,0,6"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     TextAlignment="Center" />
@@ -173,7 +174,7 @@
                                 <!--  TODO:Bind Max Gross Here  -->
                                 <TextBlock
                                     Grid.Column="4"
-                                    Margin="0,8,0,4"
+                                    Margin="0,12"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     Text="{Binding MaxGross}" />
@@ -182,6 +183,7 @@
                                 <TextBox
                                     Grid.Column="5"
                                     Width="80"
+                                    Margin="0,0,0,6"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     TextAlignment="Center" />
@@ -189,7 +191,7 @@
                                 <!--  TODO: Bind Min Net Here  -->
                                 <TextBlock
                                     Grid.Column="6"
-                                    Margin="0,8,0,4"
+                                    Margin="0,12"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     Text="{Binding MinNet}" />
@@ -197,7 +199,7 @@
                                 <!--  TODO: Bind Net Here  -->
                                 <TextBlock
                                     Grid.Column="7"
-                                    Margin="0,8,0,4"
+                                    Margin="0,12"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     FontWeight="Bold"
@@ -206,7 +208,7 @@
                                 <!--  TODO: Bind Max Net Here  -->
                                 <TextBlock
                                     Grid.Column="8"
-                                    Margin="0,8,0,4"
+                                    Margin="0,12"
                                     HorizontalAlignment="Center"
                                     FontSize="15"
                                     Text="{Binding MaxNet}" />
@@ -219,9 +221,9 @@
                                 Visibility="{Binding TotalNetVisibility, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
-                                    <ColumnDefinition Width="70" />
-                                    <ColumnDefinition Width="90" />
-                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontSize="15" Text="Total Net " />

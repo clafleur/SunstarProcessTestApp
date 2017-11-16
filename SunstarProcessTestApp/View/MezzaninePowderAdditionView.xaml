@@ -63,7 +63,7 @@
                                                 Text="{Binding Name}" />
                                             <Grid Grid.Column="1" Grid.ColumnSpan="2">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="90" />
+                                                    <ColumnDefinition Width="80" />
                                                     <ColumnDefinition />
                                                 </Grid.ColumnDefinitions>
 
@@ -83,13 +83,13 @@
                                                     Visibility="Collapsed">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="50" />
-                                                        <ColumnDefinition Width="70" />
-                                                        <ColumnDefinition Width="90" />
-                                                        <ColumnDefinition Width="70" />
+                                                        <ColumnDefinition Width="80" />
+                                                        <ColumnDefinition Width="80" />
+                                                        <ColumnDefinition Width="80" />
                                                         <ColumnDefinition />
-                                                        <ColumnDefinition Width="70" />
-                                                        <ColumnDefinition Width="90" />
-                                                        <ColumnDefinition Width="70" />
+                                                        <ColumnDefinition Width="80" />
+                                                        <ColumnDefinition Width="80" />
+                                                        <ColumnDefinition Width="80" />
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock
                                                         Grid.Column="1"
@@ -126,6 +126,7 @@
                                                         Margin="0,8,0,4"
                                                         HorizontalAlignment="Center"
                                                         FontSize="15"
+                                                        FontWeight="Bold"
                                                         Text="Net" />
                                                     <TextBlock
                                                         Grid.Column="7"
@@ -167,7 +168,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="80" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -202,30 +203,31 @@
                             Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50" />
-                                <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="90" />
-                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="90" />
-                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
                             </Grid.ColumnDefinitions>
 
                             <TextBlock
                                 Grid.Column="1"
-                                Margin="0,8,0,4"
+                                Margin="0,12"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
                                 Text="{Binding MinGross}" />
                             <TextBox
                                 Grid.Column="2"
                                 Width="80"
+                                Margin="0,0,0,6"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
                                 TextAlignment="Center" />
                             <TextBlock
                                 Grid.Column="3"
-                                Margin="0,8,0,4"
+                                Margin="0,12"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
                                 Text="{Binding MaxGross}"
@@ -233,24 +235,26 @@
                             <TextBox
                                 Grid.Column="4"
                                 Width="80"
+                                Margin="0,0,0,6"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
                                 TextAlignment="Center" />
                             <TextBlock
                                 Grid.Column="5"
-                                Margin="0,8,0,4"
+                                Margin="0,12"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
                                 Text="{Binding MinNet}" />
                             <TextBlock
                                 Grid.Column="6"
-                                Margin="0,8,0,4"
+                                Margin="0,12"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
+                                FontWeight="Bold"
                                 Text="{Binding ItemNet}" />
                             <TextBlock
                                 Grid.Column="7"
-                                Margin="0,8,0,4"
+                                Margin="0,12"
                                 HorizontalAlignment="Center"
                                 FontSize="15"
                                 Text="{Binding MaxNet}" />
@@ -263,9 +267,9 @@
                             Visibility="{Binding TotalNetVisibility, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="90" />
-                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontSize="15" Text="Total Net " />

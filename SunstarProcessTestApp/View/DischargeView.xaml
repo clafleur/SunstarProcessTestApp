@@ -15,11 +15,11 @@
         </Grid.RowDefinitions>
         <TextBlock
             HorizontalAlignment="Left"
-            Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+            Style="{StaticResource MaterialDesignHeadlineTextBlock}"
             Text="Discharge" />
         <Button
             HorizontalAlignment="Right"
-            Content="Return to Batch Selection"
+            Content="Add / View Comments"
             KeyboardNavigation.IsTabStop="False" />
         <ScrollViewer
             Grid.Row="1"

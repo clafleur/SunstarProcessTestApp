@@ -164,7 +164,17 @@
                 Text="(if QC sample is OK, push the sample OK button and Advance to Discharge Step when Cooldown is complete)"
                 TextWrapping="Wrap"
                 Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=InitialQCListBoxItem}" />
-            
+
+            <TextBlock
+                Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                TextWrapping="Wrap"
+                Visibility="{Binding IsSelected, ConverterParameter=true, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DischargeListBoxItem}" >
+                <Run>QC RETAIN SAMPLES:</Run><LineBreak />
+            <Run FontWeight="Bold">Purge 1 quart of product from sample valve to clear sample line</Run><LineBreak />
+                <Run FontSize="13">(WARNING: Failure to purge could result in batch rejection)</Run><LineBreak />
+                <Run FontWeight="Bold">Fill quart cans and deliver to the Quality Control Department</Run>
+            </TextBlock>
+
         </Grid>
         <Button
             Grid.Row="2"

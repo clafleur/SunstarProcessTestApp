@@ -119,80 +119,81 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock HorizontalAlignment="Center" Text="Vo" />
+                    <TextBlock HorizontalAlignment="Center" Text="Vo" Margin="0,4,0,0"/>
                     <TextBlock
                         Grid.Column="1"
                         HorizontalAlignment="Center"
-                        Text="PFo" />
+                        Text="PFo" Margin="0,4,0,0"/>
                     <TextBlock
                         Grid.Column="2"
                         HorizontalAlignment="Center"
-                        Text="Results" />
+                        Text="Results" Margin="0,4,0,0"/>
+                    <Border BorderThickness="1" BorderBrush="White" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="10"/>
                     <TextBlock
                         Grid.Column="3"
                         HorizontalAlignment="Center"
-                        Text="R/M Input" />
+                        Text="R/M Input" Margin="0,4,0,0"/>
                     <TextBlock
                         Grid.Column="4"
-                        Margin="8,0"
+                        Margin="8,4,8,0"
                         VerticalAlignment="Center"
                         Text="+" />
                     <TextBlock
                         Grid.Column="5"
                         HorizontalAlignment="Center"
-                        Text="Rework" />
+                        Text="Rework" Margin="0,4,0,0"/>
                     <TextBlock
                         Grid.Column="6"
-                        Margin="8,0"
+                        Margin="8,4,8,0"
                         VerticalAlignment="Center"
                         Text="=" />
                     <TextBlock
                         Grid.Column="7"
                         HorizontalAlignment="Center"
-                        Text="1st Net" />
+                        Text="1st Net" Margin="0,4,0,0"/>
                     <TextBlock
                         Grid.Column="8"
-                        Margin="8,0"
+                        Margin="8,4,8,0"
                         VerticalAlignment="Center"
                         Text="x" />
                     <TextBlock
                         Grid.Column="9"
                         HorizontalAlignment="Center"
-                        Text="Adj %" />
+                        Text="Adj %" Margin="0,4,0,0"/>
                     <TextBlock
                         Grid.Column="10"
-                        Margin="0,0,8,0"
+                        Margin="0,4,8,0"
                         VerticalAlignment="Center"
                         Text="%" />
                     <TextBlock
                         Grid.Column="11"
-                        Margin="0,0,8,0"
+                        Margin="0,4,8,0"
                         VerticalAlignment="Center"
                         Text="=" />
                     <TextBlock
                         Grid.Column="12"
                         HorizontalAlignment="Center"
-                        Text="1st Adj Lbs" />
+                        Text="1st Adj Lbs" Margin="0,4,4,0"/>
                     <TextBlock
                         Grid.Column="13"
                         HorizontalAlignment="Center"
-                        Text="QC Initials" />
+                        Text="QC Initials" Margin="0,4,0,0"/>
                     <TextBlock Grid.Column="14" Text="QC End Time" />
 
                     <TextBox
                         Grid.Row="1"
                         Width="50"
-                        Margin="0,0,8,0" />
+                        Margin="0,0,8,8" />
                     <TextBox
                         Grid.Row="1"
                         Grid.Column="1"
                         Width="50"
-                        Margin="8,0,8,0" />
+                        Margin="8,0,8,8" />
                     <ComboBox
                         Grid.Row="1"
                         Grid.Column="2"
                         Width="75"
-                        Margin="8,0,8,0"
+                        Margin="8,0,8,8"
                         VerticalAlignment="Bottom">
                         <ComboBoxItem x:Name="OKComboBox" Content="OK" />
                         <ComboBoxItem Content="Adjust" />
@@ -202,67 +203,67 @@
                         Grid.Row="1"
                         Grid.Column="3"
                         Width="75"
-                        Margin="8,0,8,0" />
+                        Margin="8,0,8,8" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="4"
-                        Margin="8,0,8,0"
+                        Margin="8,0,8,8"
                         VerticalAlignment="Center"
                         Text="+" />
                     <TextBox
                         Grid.Row="1"
                         Grid.Column="5"
                         Width="50"
-                        Margin="0,0,8,0" />
+                        Margin="0,0,8,8" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="6"
-                        Margin="0,0,8,0"
+                        Margin="0,0,8,8"
                         VerticalAlignment="Center"
                         Text="=" />
                     <TextBox
                         Grid.Row="1"
                         Grid.Column="7"
                         Width="50"
-                        Margin="0,0,8,0" />
+                        Margin="0,0,8,8" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="8"
-                        Margin="0,0,8,0"
+                        Margin="0,0,8,8"
                         VerticalAlignment="Center"
                         Text="x" />
                     <TextBox
                         Grid.Row="1"
                         Grid.Column="9"
                         Width="50"
-                        Margin="0,0,8,0" />
+                        Margin="0,0,8,8" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="10"
-                        Margin="0,0,8,0"
+                        Margin="0,0,8,8"
                         VerticalAlignment="Center"
                         Text="%" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="11"
-                        Margin="0,0,8,0"
+                        Margin="0,0,8,8"
                         VerticalAlignment="Center"
                         Text="=" />
                     <TextBox
                         Grid.Row="1"
                         Grid.Column="12"
                         Width="75"
-                        Margin="0,0,8,0" />
+                        Margin="0,0,8,8" />
                     <TextBox
                         Grid.Row="1"
                         Grid.Column="13"
                         Width="75"
-                        Margin="8,0,8,0" />
+                        Margin="8,0,8,8" />
                     <materialDesign:TimePicker
                         Grid.Row="1"
                         Grid.Column="14"
                         Width="150"
-                        Margin="8,0,0,0"
+                        Margin="8,0,0,8"
                         VerticalAlignment="Bottom" />
 
                     <TextBlock

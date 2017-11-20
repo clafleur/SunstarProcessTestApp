@@ -27,29 +27,134 @@
             VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75" />
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBlock Text="Container"/>
-                <TextBlock Text="Fill Sequence" Grid.Column="1"/>
-                <TextBlock Text="Initial Tare" Grid.Column="2"/>
-                <TextBlock Text="True Tare" Grid.Column="3"/>
-                <TextBlock Text="Partial Gross" Grid.Column="4"/>
-                <TextBlock Text="Partial Net" Grid.Column="5"/>
-                <TextBlock Text="(record from partial label)" Grid.Column="6"/>
+                <TextBlock
+                    Margin="0,0,6,0"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Container #" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="6,0"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Fill Sequence" />
+                <TextBlock
+                    Grid.Column="2"
+                    Margin="6,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Initial Tare" />
+                <TextBlock
+                    Grid.Column="3"
+                    Margin="6,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="True Tare" />
+                <TextBlock
+                    Grid.Column="4"
+                    Margin="6,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Partial Gross" />
+                <TextBlock
+                    Grid.Column="5"
+                    Margin="6,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Partial Net" />
+                <TextBlock
+                    Grid.Column="6"
+                    Margin="6,0,0,0"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="(record from partial label)" />
 
-                <TextBox Width="75"/>
-                <TextBlock Width="50"/>
+                <TextBox
+                    Grid.Row="1"
+                    Width="80"
+                    FontSize="15"
+                    TextAlignment="Center" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="1" />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="80"
+                    FontSize="15"
+                    TextAlignment="Center" />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Width="80"
+                    Margin="12,0,4,0"
+                    FontSize="15"
+                    TextAlignment="Center" />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Width="80"
+                    FontSize="15"
+                    TextAlignment="Center" />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="5"
+                    Width="80"
+                    Margin="4,0,0,0"
+                    FontSize="15"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Column="3" Grid.Row="2"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Final Gross" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+                <TextBlock
+                    Grid.Column="4" Grid.Row="2"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Current Net" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+
+                <TextBox
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Width="80"
+                    FontSize="15"
+                    TextAlignment="Center" />
+                <TextBox
+                    Grid.Row="3"
+                    Grid.Column="4"
+                    Width="80"
+                    Margin="4,0,0,0"
+                    FontSize="15"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Total Net of Initial Partil Fill" Margin="0,20,0,0"/>
+                <TextBox
+                    Grid.Row="5"
+                    Grid.Column="4"
+                    Width="80"
+                    Margin="4,0,0,0"
+                    FontSize="15"
+                    TextAlignment="Center" />
             </Grid>
         </ScrollViewer>
     </Grid>

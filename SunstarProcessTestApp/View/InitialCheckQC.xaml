@@ -80,7 +80,6 @@
                 MinWidth="0"
                 Margin="30,0,0,0"
                 FontSize="15"
-                Style="{DynamicResource MaterialDesignDatePicker}"
                 Text="{Binding Mode=OneTime, Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd-MMM-yyyy hh:mm:ss}'}" />
 
         </StackPanel>
@@ -119,20 +118,31 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock HorizontalAlignment="Center" Text="Vo" Margin="0,4,0,0"/>
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        HorizontalAlignment="Center"
+                        Text="Vo" />
                     <TextBlock
                         Grid.Column="1"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="PFo" Margin="0,4,0,0"/>
+                        Text="PFo" />
                     <TextBlock
                         Grid.Column="2"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="Results" Margin="0,4,0,0"/>
-                    <Border BorderThickness="1" BorderBrush="White" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="10"/>
+                        Text="Results" />
+                    <Border
+                        Grid.RowSpan="2"
+                        Grid.Column="3"
+                        Grid.ColumnSpan="10"
+                        BorderBrush="White"
+                        BorderThickness="1" />
                     <TextBlock
                         Grid.Column="3"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="R/M Input" Margin="0,4,0,0"/>
+                        Text="R/M Input" />
                     <TextBlock
                         Grid.Column="4"
                         Margin="8,4,8,0"
@@ -140,8 +150,9 @@
                         Text="+" />
                     <TextBlock
                         Grid.Column="5"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="Rework" Margin="0,4,0,0"/>
+                        Text="Rework" />
                     <TextBlock
                         Grid.Column="6"
                         Margin="8,4,8,0"
@@ -149,8 +160,9 @@
                         Text="=" />
                     <TextBlock
                         Grid.Column="7"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="1st Net" Margin="0,4,0,0"/>
+                        Text="1st Net" />
                     <TextBlock
                         Grid.Column="8"
                         Margin="8,4,8,0"
@@ -158,8 +170,9 @@
                         Text="x" />
                     <TextBlock
                         Grid.Column="9"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="Adj %" Margin="0,4,0,0"/>
+                        Text="Adj %" />
                     <TextBlock
                         Grid.Column="10"
                         Margin="0,4,8,0"
@@ -172,12 +185,14 @@
                         Text="=" />
                     <TextBlock
                         Grid.Column="12"
+                        Margin="0,4,4,0"
                         HorizontalAlignment="Center"
-                        Text="1st Adj Lbs" Margin="0,4,4,0"/>
+                        Text="1st Adj Lbs" />
                     <TextBlock
                         Grid.Column="13"
+                        Margin="0,4,0,0"
                         HorizontalAlignment="Center"
-                        Text="QC Initials" Margin="0,4,0,0"/>
+                        Text="QC Initials" />
                     <TextBlock Grid.Column="14" Text="QC End Time" />
 
                     <TextBox
